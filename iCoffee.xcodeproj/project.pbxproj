@@ -16,6 +16,9 @@
 		A27EAC6329389DC000340951 /* iCoffeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC6229389DC000340951 /* iCoffeeTests.swift */; };
 		A27EAC6D29389DC000340951 /* iCoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC6C29389DC000340951 /* iCoffeeUITests.swift */; };
 		A27EAC6F29389DC000340951 /* iCoffeeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC6E29389DC000340951 /* iCoffeeUITestsLaunchTests.swift */; };
+		A27EAC872938B9FD00340951 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC862938B9FD00340951 /* SignInView.swift */; };
+		A27EAC892938BA1200340951 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC882938BA1200340951 /* SignUpView.swift */; };
+		A27EAC8B2938D0C500340951 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC8A2938D0C500340951 /* WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		A27EAC6829389DC000340951 /* iCoffeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCoffeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27EAC6C29389DC000340951 /* iCoffeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCoffeeUITests.swift; sourceTree = "<group>"; };
 		A27EAC6E29389DC000340951 /* iCoffeeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCoffeeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A27EAC862938B9FD00340951 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		A27EAC882938BA1200340951 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		A27EAC8A2938D0C500340951 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,10 @@
 		A27EAC4B29389DBF00340951 /* iCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				A27EAC8029389F3B00340951 /* Model */,
+				A27EAC8129389F4200340951 /* View */,
+				A27EAC8229389F4D00340951 /* ViewModel */,
+				A27EAC8329389F6100340951 /* Service */,
 				A27EAC4C29389DBF00340951 /* iCoffeeApp.swift */,
 				A27EAC4E29389DBF00340951 /* ContentView.swift */,
 				A27EAC5029389DC000340951 /* Assets.xcassets */,
@@ -131,6 +141,37 @@
 				A27EAC6E29389DC000340951 /* iCoffeeUITestsLaunchTests.swift */,
 			);
 			path = iCoffeeUITests;
+			sourceTree = "<group>";
+		};
+		A27EAC8029389F3B00340951 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A27EAC8129389F4200340951 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A27EAC862938B9FD00340951 /* SignInView.swift */,
+				A27EAC882938BA1200340951 /* SignUpView.swift */,
+				A27EAC8A2938D0C500340951 /* WelcomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A27EAC8229389F4D00340951 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A27EAC8329389F6100340951 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +308,9 @@
 				A27EAC5929389DC000340951 /* iCoffee.xcdatamodeld in Sources */,
 				A27EAC4F29389DBF00340951 /* ContentView.swift in Sources */,
 				A27EAC4D29389DBF00340951 /* iCoffeeApp.swift in Sources */,
+				A27EAC892938BA1200340951 /* SignUpView.swift in Sources */,
+				A27EAC872938B9FD00340951 /* SignInView.swift in Sources */,
+				A27EAC8B2938D0C500340951 /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
