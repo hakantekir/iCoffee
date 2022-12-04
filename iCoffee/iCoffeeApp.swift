@@ -13,7 +13,7 @@ struct iCoffeeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SignInView()
+            SignUpView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
