@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A21AFBE3293B7C33001E52D6 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AFBE2293B7C33001E52D6 /* Page.swift */; };
 		A21AFBE5293B7F4C001E52D6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AFBE4293B7F4C001E52D6 /* WelcomeView.swift */; };
+		A279F108293F711000D79C9D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279F107293F711000D79C9D /* MainView.swift */; };
 		A27EAC4D29389DBF00340951 /* iCoffeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC4C29389DBF00340951 /* iCoffeeApp.swift */; };
 		A27EAC5129389DC000340951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27EAC5029389DC000340951 /* Assets.xcassets */; };
 		A27EAC5429389DC000340951 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27EAC5329389DC000340951 /* Preview Assets.xcassets */; };
@@ -20,6 +21,9 @@
 		A27EAC872938B9FD00340951 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC862938B9FD00340951 /* SignInView.swift */; };
 		A27EAC892938BA1200340951 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC882938BA1200340951 /* SignUpView.swift */; };
 		A27EAC8B2938D0C500340951 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC8A2938D0C500340951 /* PageView.swift */; };
+		A2C54499293CEC1800E99062 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C54498293CEC1800E99062 /* APIManager.swift */; };
+		A2C5449C293D201300E99062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C5449B293D201300E99062 /* User.swift */; };
+		A2C5449E293D237400E99062 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C5449D293D237400E99062 /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,7 @@
 /* Begin PBXFileReference section */
 		A21AFBE2293B7C33001E52D6 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		A21AFBE4293B7F4C001E52D6 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		A279F107293F711000D79C9D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A27EAC4929389DBF00340951 /* iCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27EAC4C29389DBF00340951 /* iCoffeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCoffeeApp.swift; sourceTree = "<group>"; };
 		A27EAC5029389DC000340951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +61,9 @@
 		A27EAC862938B9FD00340951 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		A27EAC882938BA1200340951 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A27EAC8A2938D0C500340951 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		A2C54498293CEC1800E99062 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		A2C5449B293D201300E99062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A2C5449D293D237400E99062 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,7 @@
 		A27EAC8029389F3B00340951 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A2C5449B293D201300E99062 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +167,7 @@
 				A27EAC882938BA1200340951 /* SignUpView.swift */,
 				A27EAC8A2938D0C500340951 /* PageView.swift */,
 				A21AFBE4293B7F4C001E52D6 /* WelcomeView.swift */,
+				A279F107293F711000D79C9D /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A21AFBE2293B7C33001E52D6 /* Page.swift */,
+				A2C5449D293D237400E99062 /* SignInViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -173,6 +184,7 @@
 		A27EAC8329389F6100340951 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A2C54498293CEC1800E99062 /* APIManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -308,12 +320,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A27EAC5629389DC000340951 /* Persistence.swift in Sources */,
+				A279F108293F711000D79C9D /* MainView.swift in Sources */,
 				A27EAC5929389DC000340951 /* iCoffee.xcdatamodeld in Sources */,
 				A21AFBE3293B7C33001E52D6 /* Page.swift in Sources */,
+				A2C54499293CEC1800E99062 /* APIManager.swift in Sources */,
 				A21AFBE5293B7F4C001E52D6 /* WelcomeView.swift in Sources */,
 				A27EAC4D29389DBF00340951 /* iCoffeeApp.swift in Sources */,
 				A27EAC892938BA1200340951 /* SignUpView.swift in Sources */,
 				A27EAC872938B9FD00340951 /* SignInView.swift in Sources */,
+				A2C5449E293D237400E99062 /* SignInViewModel.swift in Sources */,
+				A2C5449C293D201300E99062 /* User.swift in Sources */,
 				A27EAC8B2938D0C500340951 /* PageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +492,7 @@
 				DEVELOPMENT_TEAM = H3L57XFNX5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = iCoffee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -505,7 +521,7 @@
 				DEVELOPMENT_TEAM = H3L57XFNX5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = iCoffee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

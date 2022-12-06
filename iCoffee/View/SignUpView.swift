@@ -46,20 +46,22 @@ struct SignUpView: View {
                 .background(Color.black.opacity(0.05))
                 .cornerRadius(10)
             
-            TextField("E-Mail", text: $username)
+            TextField("E-Mail", text: $mail)
                 .padding()
                 .frame(width: 300, height: 50)
                 .background(Color.black.opacity(0.05))
                 .cornerRadius(10)
             
-            TextField("Phone Number", text: $username)
+            TextField("Phone Number", text: $phone)
                 .padding()
                 .frame(width: 300, height: 50)
                 .background(Color.black.opacity(0.05))
                 .cornerRadius(10)
                 
             Button {
-                print("sign up button clicked")
+                if name != "" {
+                    
+                }
             } label: {
                 Text("SIGN UP")
                     .padding()
