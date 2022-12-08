@@ -14,6 +14,9 @@ struct SignUpView: View {
     @State var password: String = ""
     @State var mail: String = ""
     @State var phone: String = ""
+    @State var showAlert = false
+    
+    var signUpViewModel = SignUpViewModel()
     
     let myGreen = Color(red: 0, green: 100.0/255, blue: 60.0/255, opacity: 1.0)
     var body: some View {
@@ -35,6 +38,7 @@ struct SignUpView: View {
             }
             
             TextField("Username", text: $username)
+                .textInputAutocapitalization(.never)
                 .padding()
                 .frame(width: 300, height: 50)
                 .background(Color.black.opacity(0.05))
@@ -47,20 +51,37 @@ struct SignUpView: View {
                 .cornerRadius(10)
             
             TextField("E-Mail", text: $mail)
+                .keyboardType(.emailAddress)
                 .padding()
                 .frame(width: 300, height: 50)
                 .background(Color.black.opacity(0.05))
                 .cornerRadius(10)
             
             TextField("Phone Number", text: $phone)
+                .keyboardType(.numberPad)
                 .padding()
                 .frame(width: 300, height: 50)
                 .background(Color.black.opacity(0.05))
                 .cornerRadius(10)
                 
             Button {
-                if name != "" {
-                    
+                if ![name,lastname,username,password,mail,phone].contains(""){
+                    showAlert=true
+                } else {
+                    let newUser = User(username: username, password: password, userDetails: UserDetails(name: name, lastname: lastname, mail: mail, phone: phone))
+                    signUpViewModel.signUp(user: newUser) { result in
+                        switch result{
+                        case .success(let user):
+                            print(1)
+                        case .failure(let error):
+                            switch error {
+                            case .usernameAlreadyTaken:
+                                print(2)
+                            case .connectionError:
+                                print(3)
+                            }
+                        }
+                    }
                 }
             } label: {
                 Text("SIGN UP")
@@ -69,6 +90,11 @@ struct SignUpView: View {
                     .background(myGreen)
                     .cornerRadius(10)
                     .foregroundColor(.white)
+            }.alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text("Please enter blank fields!")
+                )
             }
         }
     }

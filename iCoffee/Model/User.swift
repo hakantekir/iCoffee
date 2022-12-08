@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct User: Decodable {
+struct User: Codable {
     var id: Int?
     var username: String?
     var password: String?
     var userDetails: UserDetails?
 }
 
-struct UserDetails: Decodable {
+struct UserDetails: Codable {
     var name: String?
     var lastname: String?
     var mail: String?
@@ -22,7 +22,7 @@ struct UserDetails: Decodable {
     var addresses: [Address]?
 }
 
-struct Address: Decodable {
+struct Address: Codable {
     var name: String?
     var lastname: String?
     var country: String?
@@ -33,12 +33,22 @@ struct Address: Decodable {
     var longitude: String?
 }
 
-struct UserWithStatusCode: Decodable {
-    var status: StatusCode
+struct UserWithSignUpStatusCode: Codable {
+    var status: SignUpStatusCode
     var user: User?
 }
 
-enum StatusCode: Int, Decodable {
+struct UserWithSignInStatusCode: Decodable {
+    var status: SignInStatusCode
+    var user: User?
+}
+
+enum SignUpStatusCode: Int, Codable {
+    case success = 0
+    case usernameAlreadyTaken = 1
+}
+
+enum SignInStatusCode: Int, Decodable {
     case success = 0
     case wrongUsername = 1
     case wrongPassword = 2

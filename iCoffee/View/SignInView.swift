@@ -38,6 +38,7 @@ struct SignInView: View {
                         .bold()
                     
                     TextField("Username", text: $username)
+                        .textInputAutocapitalization(.never)
                         .padding()
                         .frame(width: 300, height: 50)
                         .background(Color.black.opacity(0.05))
@@ -59,11 +60,11 @@ struct SignInView: View {
                             case .failure(let error):
                                 switch error {
                                 case .connectionError:
-                                    self.errorMessage = "Please check your internet connection"
+                                    self.errorMessage = "Please check your internet connection!"
                                 case .wrongUsername:
-                                    self.errorMessage = "Please check your username"
+                                    self.errorMessage = "Please check your username!"
                                 case .wrongPassword:
-                                    self.errorMessage = "Please check your password"
+                                    self.errorMessage = "Please check your password!"
                                 }
                                 showAlert=true
                             }

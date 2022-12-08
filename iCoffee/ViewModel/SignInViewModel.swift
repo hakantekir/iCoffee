@@ -7,16 +7,17 @@
 
 import Foundation
 
-var apiManager = APIManager()
 
-class SignInViewModel {
+
+struct SignInViewModel {
     
-    func signIn(username: String, password: String, completion: @escaping(Result<User,userErrors>) -> Void) {
-        apiManager.signIn(username: username, password: password) { result in
+    func signIn(username: String, password: String, completion: @escaping(Result<User, UserSignInErrors>) -> Void) {
+        sharedApiManager.signIn(username: username, password: password) { result in
             switch result {
             case .success(let user):
                 switch user.status {
                 case .success:
+                    UserDefaults.standard.set(user.user?.id, forKey: "id")
                     completion(.success(user.user!))
                 case .wrongUsername:
                     completion(.failure(.wrongUsername))
@@ -33,13 +34,13 @@ class SignInViewModel {
                 case .dataParseError:
                     print("Parse Error")
                 }
-                completion(.failure(userErrors.connectionError))
+                completion(.failure(UserSignInErrors.connectionError))
             }
         }
     }
 }
 
-enum userErrors: Error{
+enum UserSignInErrors: Error{
     case wrongUsername
     case wrongPassword
     case connectionError
