@@ -18,8 +18,8 @@ struct SignUpViewModel {
                 switch responseUser.status {
                 case .success:
                     if var newUser = responseUser.user {
-                        newUser=user
-                        print(newUser.id)
+                        var user = user
+                        user.id=newUser.id
                         completion(.success(user))
                     }
                 case .usernameAlreadyTaken:

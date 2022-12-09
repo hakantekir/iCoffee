@@ -15,6 +15,9 @@ struct SignUpView: View {
     @State var mail: String = ""
     @State var phone: String = ""
     @State var showAlert = false
+    @State var navigateMain = false
+    @State var user: User?
+    @State var errorMessage = ""
     
     var signUpViewModel = SignUpViewModel()
     
@@ -65,21 +68,24 @@ struct SignUpView: View {
                 .cornerRadius(10)
                 
             Button {
-                if ![name,lastname,username,password,mail,phone].contains(""){
+                if [name,lastname,username,password,mail,phone].contains(""){
+                    errorMessage = "Please enter blank fields!"
                     showAlert=true
                 } else {
                     let newUser = User(username: username, password: password, userDetails: UserDetails(name: name, lastname: lastname, mail: mail, phone: phone))
                     signUpViewModel.signUp(user: newUser) { result in
                         switch result{
                         case .success(let user):
-                            print(1)
+                            self.user=user
+                            navigateMain=true
                         case .failure(let error):
                             switch error {
                             case .usernameAlreadyTaken:
-                                print(2)
+                                errorMessage = "This username already taken!"
                             case .connectionError:
-                                print(3)
+                                errorMessage = "Please check your internet connection!"
                             }
+                            showAlert = true
                         }
                     }
                 }
@@ -90,10 +96,15 @@ struct SignUpView: View {
                     .background(myGreen)
                     .cornerRadius(10)
                     .foregroundColor(.white)
-            }.alert(isPresented: $showAlert) {
+            }.navigationDestination(isPresented: $navigateMain, destination: {
+                if let user = self.user {
+                    MainView(user: user)
+                }
+            })
+            .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Error"),
-                    message: Text("Please enter blank fields!")
+                    message: Text(errorMessage)
                 )
             }
         }

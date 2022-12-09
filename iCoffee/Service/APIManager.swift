@@ -60,7 +60,6 @@ struct APIManager {
                 completion(.failure(.noData))
                 return
             }
-            print(data)
             guard let responseJson = try? JSONDecoder().decode(UserWithSignUpStatusCode.self, from: data) else {
                 completion(.failure(.dataParseError))
                 return
