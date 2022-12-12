@@ -21,7 +21,16 @@
 		A27EAC872938B9FD00340951 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC862938B9FD00340951 /* SignInView.swift */; };
 		A27EAC892938BA1200340951 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC882938BA1200340951 /* SignUpView.swift */; };
 		A27EAC8B2938D0C500340951 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC8A2938D0C500340951 /* PageView.swift */; };
+		A2B2CECD294360440034FE05 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2CECC294360440034FE05 /* HomeView.swift */; };
+		A2B2CECF2943605E0034FE05 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2CECE2943605E0034FE05 /* AccountView.swift */; };
+		A2B2CED1294364110034FE05 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2CED0294364110034FE05 /* CartView.swift */; };
+		A2B2CED32943647D0034FE05 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2CED22943647D0034FE05 /* SearchView.swift */; };
+		A2B2CED529437E4C0034FE05 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2CED429437E4C0034FE05 /* Coffee.swift */; };
+		A2B2CED72943839D0034FE05 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2CED62943839D0034FE05 /* AddressView.swift */; };
+		A2B2CED9294384570034FE05 /* AddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2CED8294384570034FE05 /* AddressesView.swift */; };
 		A2B7A2ED294225AE00CB4762 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7A2EC294225AE00CB4762 /* SignUpViewModel.swift */; };
+		A2C189EE29473CE1003106AA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C189ED29473CE1003106AA /* LocationManager.swift */; };
+		A2C189F0294743A8003106AA /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C189EF294743A8003106AA /* AddressViewModel.swift */; };
 		A2C54499293CEC1800E99062 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C54498293CEC1800E99062 /* APIManager.swift */; };
 		A2C5449C293D201300E99062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C5449B293D201300E99062 /* User.swift */; };
 		A2C5449E293D237400E99062 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C5449D293D237400E99062 /* SignInViewModel.swift */; };
@@ -62,7 +71,16 @@
 		A27EAC862938B9FD00340951 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		A27EAC882938BA1200340951 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A27EAC8A2938D0C500340951 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		A2B2CECC294360440034FE05 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A2B2CECE2943605E0034FE05 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		A2B2CED0294364110034FE05 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		A2B2CED22943647D0034FE05 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		A2B2CED429437E4C0034FE05 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		A2B2CED62943839D0034FE05 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		A2B2CED8294384570034FE05 /* AddressesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesView.swift; sourceTree = "<group>"; };
 		A2B7A2EC294225AE00CB4762 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		A2C189ED29473CE1003106AA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A2C189EF294743A8003106AA /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		A2C54498293CEC1800E99062 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A2C5449B293D201300E99062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A2C5449D293D237400E99062 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -158,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A2C5449B293D201300E99062 /* User.swift */,
+				A2B2CED429437E4C0034FE05 /* Coffee.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +189,12 @@
 				A27EAC8A2938D0C500340951 /* PageView.swift */,
 				A21AFBE4293B7F4C001E52D6 /* WelcomeView.swift */,
 				A279F107293F711000D79C9D /* MainView.swift */,
+				A2B2CECC294360440034FE05 /* HomeView.swift */,
+				A2B2CED22943647D0034FE05 /* SearchView.swift */,
+				A2B2CED0294364110034FE05 /* CartView.swift */,
+				A2B2CECE2943605E0034FE05 /* AccountView.swift */,
+				A2B2CED62943839D0034FE05 /* AddressView.swift */,
+				A2B2CED8294384570034FE05 /* AddressesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +205,7 @@
 				A21AFBE2293B7C33001E52D6 /* Page.swift */,
 				A2C5449D293D237400E99062 /* SignInViewModel.swift */,
 				A2B7A2EC294225AE00CB4762 /* SignUpViewModel.swift */,
+				A2C189EF294743A8003106AA /* AddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -188,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				A2C54498293CEC1800E99062 /* APIManager.swift */,
+				A2C189ED29473CE1003106AA /* LocationManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -323,17 +350,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				A27EAC5629389DC000340951 /* Persistence.swift in Sources */,
+				A2B2CECD294360440034FE05 /* HomeView.swift in Sources */,
 				A2B7A2ED294225AE00CB4762 /* SignUpViewModel.swift in Sources */,
+				A2B2CED9294384570034FE05 /* AddressesView.swift in Sources */,
 				A279F108293F711000D79C9D /* MainView.swift in Sources */,
 				A27EAC5929389DC000340951 /* iCoffee.xcdatamodeld in Sources */,
+				A2B2CED529437E4C0034FE05 /* Coffee.swift in Sources */,
 				A21AFBE3293B7C33001E52D6 /* Page.swift in Sources */,
+				A2B2CED32943647D0034FE05 /* SearchView.swift in Sources */,
+				A2B2CED72943839D0034FE05 /* AddressView.swift in Sources */,
 				A2C54499293CEC1800E99062 /* APIManager.swift in Sources */,
 				A21AFBE5293B7F4C001E52D6 /* WelcomeView.swift in Sources */,
 				A27EAC4D29389DBF00340951 /* iCoffeeApp.swift in Sources */,
+				A2C189F0294743A8003106AA /* AddressViewModel.swift in Sources */,
+				A2B2CECF2943605E0034FE05 /* AccountView.swift in Sources */,
 				A27EAC892938BA1200340951 /* SignUpView.swift in Sources */,
 				A27EAC872938B9FD00340951 /* SignInView.swift in Sources */,
 				A2C5449E293D237400E99062 /* SignInViewModel.swift in Sources */,
+				A2C189EE29473CE1003106AA /* LocationManager.swift in Sources */,
 				A2C5449C293D201300E99062 /* User.swift in Sources */,
+				A2B2CED1294364110034FE05 /* CartView.swift in Sources */,
 				A27EAC8B2938D0C500340951 /* PageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +533,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCoffee/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = address;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -526,6 +563,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCoffee/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = address;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

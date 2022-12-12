@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct SignInViewModel {
     
     func signIn(username: String, password: String, completion: @escaping(Result<User, UserSignInErrors>) -> Void) {

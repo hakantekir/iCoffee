@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct SignUpViewModel {
     
     func signUp(user: User, completion: @escaping(Result<User, UserSignUpErrors>) -> Void) {
@@ -17,7 +16,7 @@ struct SignUpViewModel {
             case .success(let responseUser):
                 switch responseUser.status {
                 case .success:
-                    if var newUser = responseUser.user {
+                    if let newUser = responseUser.user {
                         var user = user
                         user.id=newUser.id
                         completion(.success(user))
