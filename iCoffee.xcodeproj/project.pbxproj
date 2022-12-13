@@ -34,6 +34,7 @@
 		A2C54499293CEC1800E99062 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C54498293CEC1800E99062 /* APIManager.swift */; };
 		A2C5449C293D201300E99062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C5449B293D201300E99062 /* User.swift */; };
 		A2C5449E293D237400E99062 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C5449D293D237400E99062 /* SignInViewModel.swift */; };
+		A2F4E90529488C4A00E7C099 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F4E90429488C4A00E7C099 /* Address.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		A2C54498293CEC1800E99062 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A2C5449B293D201300E99062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A2C5449D293D237400E99062 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		A2F4E90429488C4A00E7C099 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +177,10 @@
 		A27EAC8029389F3B00340951 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A21AFBE2293B7C33001E52D6 /* Page.swift */,
 				A2C5449B293D201300E99062 /* User.swift */,
 				A2B2CED429437E4C0034FE05 /* Coffee.swift */,
+				A2F4E90429488C4A00E7C099 /* Address.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,7 +206,6 @@
 		A27EAC8229389F4D00340951 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A21AFBE2293B7C33001E52D6 /* Page.swift */,
 				A2C5449D293D237400E99062 /* SignInViewModel.swift */,
 				A2B7A2EC294225AE00CB4762 /* SignUpViewModel.swift */,
 				A2C189EF294743A8003106AA /* AddressViewModel.swift */,
@@ -365,6 +368,7 @@
 				A2C189F0294743A8003106AA /* AddressViewModel.swift in Sources */,
 				A2B2CECF2943605E0034FE05 /* AccountView.swift in Sources */,
 				A27EAC892938BA1200340951 /* SignUpView.swift in Sources */,
+				A2F4E90529488C4A00E7C099 /* Address.swift in Sources */,
 				A27EAC872938B9FD00340951 /* SignInView.swift in Sources */,
 				A2C5449E293D237400E99062 /* SignInViewModel.swift in Sources */,
 				A2C189EE29473CE1003106AA /* LocationManager.swift in Sources */,

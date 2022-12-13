@@ -12,15 +12,21 @@ struct AddressView: View {
     @State var country = ""
     @State var city = ""
     @State var zip = ""
+    @State var phone = ""
     @State var address = ""
+    @State var showAlert = false
+    @State var errorMessage = ""
     
     @StateObject private var manager = LocationManager()
+    
+    let addressViewModel = AddressViewModel()
     
     var body: some View {
         VStack {
             
             Map(coordinateRegion: $manager.region, showsUserLocation: true)
                 .frame(maxWidth: .infinity, maxHeight: 450)
+                .cornerRadius(25)
                 .padding(/*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
                 .edgesIgnoringSafeArea(.top)
             HStack {
@@ -36,12 +42,12 @@ struct AddressView: View {
                     .cornerRadius(10)
             }
             HStack {
-                TextField("Zip", text: $country)
+                TextField("Zip", text: $zip)
                     .padding()
                     .frame(width: 150, height: 50)
                     .background(Color.black.opacity(0.05))
                     .cornerRadius(10)
-                TextField("Phone", text: $city)
+                TextField("Phone", text: $phone)
                     .padding()
                     .frame(width: 150, height: 50)
                     .background(Color.black.opacity(0.05))
@@ -53,7 +59,30 @@ struct AddressView: View {
                 .background(Color.black.opacity(0.05))
                 .cornerRadius(10)
             Button {
-                print(1)
+                
+                if [country,city,zip,phone,address].contains(""){
+                    errorMessage = "Please enter blank fields!"
+                    showAlert=true
+                }
+                else {
+                    let address = Address(country: country, city: city, zip: zip, phone: phone, billingAddress: address, latitude: manager.region.center.latitude, longitude: manager.region.center.longitude)
+                    addressViewModel.addAddress(address: address) { result in
+                        switch result {
+                        case .success(_):
+                            print("success")
+                        case .failure(let error):
+                            switch error {
+                            case .sqlError:
+                                print("sqlError")
+                            case .connectionError:
+                                print("connectionError")
+                            }
+                            errorMessage = "Connection error!"
+                            showAlert=true
+                        }
+                    }
+                    
+                }
             } label: {
                 Text("Add")
                     .padding()
@@ -62,7 +91,12 @@ struct AddressView: View {
                     .cornerRadius(10)
                     .foregroundColor(.white)
             }
-
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(errorMessage)
+                )
+            }
             Spacer()
         }
     }

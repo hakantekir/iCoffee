@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AddressesView: View {
-    var user: User
+    var addresses: [Address]
     var body: some View {
-        List(user.userDetails?.addresses ?? [], id: \.id){ index in
+        List(addresses, id: \.id){ index in
             Text(index.city ?? "")
         }
     }
@@ -18,6 +18,6 @@ struct AddressesView: View {
 
 struct AddressesView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressesView(user: sampleUser)
+        AddressesView(addresses: [sampleAddress])
     }
 }

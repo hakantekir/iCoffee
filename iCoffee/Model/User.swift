@@ -19,18 +19,6 @@ struct UserDetails: Codable {
     var lastname: String?
     var mail: String?
     var phone: String?
-    var addresses: [Address]?
-}
-
-struct Address: Codable, Identifiable {
-    var id: Int?
-    var country: String?
-    var city: String?
-    var zip: String?
-    var phone: String?
-    var billingAddress: String?
-    var latitude: String?
-    var longitude: String?
 }
 
 struct UserWithSignUpStatusCode: Codable {
@@ -54,5 +42,5 @@ enum SignInStatusCode: Int, Decodable {
     case wrongPassword = 2
 }
 
-var sampleAddress = Address(country: "Country", city: "City", zip: "34", phone: "532", billingAddress: "billing", latitude: "30", longitude: "30")
-var sampleUser = User(id: 1, username: "user", password: "pass", userDetails: UserDetails(name: "name", lastname: "last", mail: "mail", phone: "532", addresses: [sampleAddress]))
+var sampleAddress = Address(country: "Country", city: "City", zip: "34", phone: "532", billingAddress: "billing", latitude: 30, longitude: 30)
+var sampleUser = User(id: 1, username: "user", password: "pass", userDetails: UserDetails(name: "name", lastname: "last", mail: "mail", phone: "532"))

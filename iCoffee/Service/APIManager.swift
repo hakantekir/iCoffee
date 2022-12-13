@@ -67,6 +67,34 @@ struct APIManager {
             completion(.success(responseJson))
         }.resume()
     }
+    
+    func addAddress(id: String?, address: Address, completion: @escaping(Result<AddressWithStatusCode, APIErrors>) -> Void) {
+        let urlString = baseUrl + "/address"
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.badUrl))
+            return
+        }
+
+        let jsonData = try? JSONEncoder().encode(address)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        request.setValue(id, forHTTPHeaderField: "id")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        URLSession.shared.dataTask(with: request) { data ,response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            guard let responseJson = try? JSONDecoder().decode(AddressWithStatusCode.self, from: data) else {
+                completion(.failure(.dataParseError))
+                return
+            }
+            completion(.success(responseJson))
+        }.resume()
+    }
 }
 
 
