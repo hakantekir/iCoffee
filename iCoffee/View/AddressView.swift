@@ -19,10 +19,12 @@ struct AddressView: View {
     
     @StateObject private var manager = LocationManager()
     
+    @Environment(\.dismiss) var dismiss: DismissAction
+    
     let addressViewModel = AddressViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Map(coordinateRegion: $manager.region, showsUserLocation: true)
                     .frame(maxWidth: .infinity, maxHeight: 450)
@@ -68,6 +70,9 @@ struct AddressView: View {
                             switch result {
                             case .success(_):
                                 print("success")
+                                DispatchQueue.main.async {
+                                    self.dismiss()
+                                }
                             case .failure(let error):
                                 switch error {
                                 case .sqlError:
@@ -79,7 +84,6 @@ struct AddressView: View {
                                 showAlert=true
                             }
                         }
-                        
                     }
                 } label: {
                     Text("Add")

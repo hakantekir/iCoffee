@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State var value = ""
+    @State var coffees: [Coffee] = []
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack{
+                TextField("Search", text: $value)
+                    .padding()
+                    .frame(width: 400, height: 50)
+                    .background(Color.black.opacity(0.05))
+                    .cornerRadius(10)
+                    .padding(50.0)
+                
+                List(coffees, id: \.id){ index in
+                    CoffeeView(coffee: index)
+                }
+                
+                Spacer()
+            }
+        }
     }
 }
 

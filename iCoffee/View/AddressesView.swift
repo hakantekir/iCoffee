@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct AddressesView: View {
-    @State var addresses: [Address]?
+    @State var addresses: [Address] = []
     @State var isHidden = true
     @State var errorMessage = ""
+    
     var addressesViewModel = AddressesViewModel()
+    
     var body: some View {
         NavigationStack{
             ZStack{
                 if (!isHidden){
                     Text("Add Address")
                 }
-                List(addresses ?? [], id: \.id){ index in
+                List(addresses, id: \.id){ index in
                     Text(index.city ?? "")
                 }.onAppear {
                     let id = UserDefaults.standard.string(forKey: "id")
@@ -39,8 +41,8 @@ struct AddressesView: View {
                 }
             }
             .toolbar {
-                Button {
-                    
+                NavigationLink {
+                    AddressView()
                 } label: {
                     Image(systemName: "plus")
                 }
