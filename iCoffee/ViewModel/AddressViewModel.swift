@@ -17,7 +17,7 @@ struct AddressViewModel {
             switch result {
             case .success(let address):
                 switch address.status{
-                case .succes:
+                case .success:
                     completion(.success(nil))
                 case .sqlError:
                     completion(.failure(.sqlError))

@@ -8,20 +8,26 @@
 import SwiftUI
 
 struct AccountView: View {
+    @State var signOut = false
     var body: some View {
-        VStack{
-            Button {
+        NavigationStack{
+            VStack{
+                NavigationLink{
+                    AddressesView()
+                } label: {
+                    Text("My Addresses")
+                }
                 
-            } label: {
-                Text("My Addresses")
-            }
-
-            Button {
+                Button {
+                    UserDefaults.standard.removeObject(forKey: "id")
+                    signOut.toggle()
+                } label: {
+                    Text("Sign out")
+                }.navigationDestination(isPresented: $signOut, destination: {
+                    SignInView()
+                })
                 
-            } label: {
-                Text("Sign out")
             }
-            
         }
     }
 }

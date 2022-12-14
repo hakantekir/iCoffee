@@ -56,7 +56,7 @@ struct SignInView: View {
                             switch result{
                             case .success(let user):
                                 self.user=user
-                                login=true
+                                login.toggle()
                             case .failure(let error):
                                 switch error {
                                 case .connectionError:
@@ -101,7 +101,7 @@ struct SignInView: View {
                     }
                 }
             }
-        }
+        }.toolbar(.hidden, for: .tabBar, .navigationBar)
     }
 }
 

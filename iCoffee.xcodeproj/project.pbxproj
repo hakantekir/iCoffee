@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A217CBB02949FDE70051D0A9 /* AddressesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A217CBAF2949FDE70051D0A9 /* AddressesViewModel.swift */; };
 		A21AFBE3293B7C33001E52D6 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AFBE2293B7C33001E52D6 /* Page.swift */; };
 		A21AFBE5293B7F4C001E52D6 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AFBE4293B7F4C001E52D6 /* WelcomeView.swift */; };
 		A279F108293F711000D79C9D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279F107293F711000D79C9D /* MainView.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A217CBAF2949FDE70051D0A9 /* AddressesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewModel.swift; sourceTree = "<group>"; };
 		A21AFBE2293B7C33001E52D6 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		A21AFBE4293B7F4C001E52D6 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A279F107293F711000D79C9D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -192,11 +194,11 @@
 				A27EAC882938BA1200340951 /* SignUpView.swift */,
 				A27EAC8A2938D0C500340951 /* PageView.swift */,
 				A21AFBE4293B7F4C001E52D6 /* WelcomeView.swift */,
-				A279F107293F711000D79C9D /* MainView.swift */,
 				A2B2CECC294360440034FE05 /* HomeView.swift */,
 				A2B2CED22943647D0034FE05 /* SearchView.swift */,
 				A2B2CED0294364110034FE05 /* CartView.swift */,
 				A2B2CECE2943605E0034FE05 /* AccountView.swift */,
+				A279F107293F711000D79C9D /* MainView.swift */,
 				A2B2CED62943839D0034FE05 /* AddressView.swift */,
 				A2B2CED8294384570034FE05 /* AddressesView.swift */,
 			);
@@ -209,6 +211,7 @@
 				A2C5449D293D237400E99062 /* SignInViewModel.swift */,
 				A2B7A2EC294225AE00CB4762 /* SignUpViewModel.swift */,
 				A2C189EF294743A8003106AA /* AddressViewModel.swift */,
+				A217CBAF2949FDE70051D0A9 /* AddressesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				A2C54499293CEC1800E99062 /* APIManager.swift in Sources */,
 				A21AFBE5293B7F4C001E52D6 /* WelcomeView.swift in Sources */,
 				A27EAC4D29389DBF00340951 /* iCoffeeApp.swift in Sources */,
+				A217CBB02949FDE70051D0A9 /* AddressesViewModel.swift in Sources */,
 				A2C189F0294743A8003106AA /* AddressViewModel.swift in Sources */,
 				A2B2CECF2943605E0034FE05 /* AccountView.swift in Sources */,
 				A27EAC892938BA1200340951 /* SignUpView.swift in Sources */,

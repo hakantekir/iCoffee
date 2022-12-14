@@ -19,6 +19,7 @@ struct SignUpViewModel {
                     if let newUser = responseUser.user {
                         var user = user
                         user.id=newUser.id
+                        UserDefaults.standard.set(user.id, forKey: "id")
                         completion(.success(user))
                     }
                 case .usernameAlreadyTaken:

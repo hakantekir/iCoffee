@@ -23,8 +23,13 @@ struct AddressWithStatusCode: Decodable {
     var address: Address?
 }
 
+struct AddressesWithStatusCode: Decodable {
+    var status: AddressStatusCode
+    var addresses: [Address]?
+}
+
 enum AddressStatusCode: Int, Decodable {
-    case succes = 0
+    case success = 0
     case sqlError = 1
 }
 

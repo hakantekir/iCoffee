@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
+    @State var selection = 1
+    
     var user: User
     var body: some View {
         NavigationView {
-            TabView {
+            TabView(selection: $selection) {
                 HomeView()
                     .tabItem { Label("Home", systemImage: "house") }.tag(1)
                 SearchView()
