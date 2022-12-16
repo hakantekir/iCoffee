@@ -9,7 +9,7 @@ import Foundation
 
 struct SignUpViewModel {
     
-    func signUp(user: User, completion: @escaping(Result<User, UserSignUpErrors>) -> Void) {
+    func signUp(user: User, completion: @escaping(Result<Void, UserSignUpErrors>) -> Void) {
         sharedApiManager.signUp(user: user) { result in
             switch result{
                 
@@ -20,7 +20,7 @@ struct SignUpViewModel {
                         var user = user
                         user.id=newUser.id
                         UserDefaults.standard.set(user.id, forKey: "id")
-                        completion(.success(user))
+                        completion(.success)
                     }
                 case .usernameAlreadyTaken:
                     completion(.failure(.usernameAlreadyTaken))
@@ -44,4 +44,10 @@ struct SignUpViewModel {
 enum UserSignUpErrors: Error {
     case usernameAlreadyTaken
     case connectionError
+}
+
+private extension Result where Success == Void {
+    static var success: Result {
+        return .success(())
+    }
 }

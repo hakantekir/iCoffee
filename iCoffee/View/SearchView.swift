@@ -10,19 +10,47 @@ import SwiftUI
 struct SearchView: View {
     @State var value = ""
     @State var coffees: [Coffee] = []
+    
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         NavigationStack {
             VStack{
                 TextField("Search", text: $value)
                     .padding()
-                    .frame(width: 400, height: 50)
-                    .background(Color.black.opacity(0.05))
+                    .frame(width: 350, height: 50)
+                    .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                     .cornerRadius(10)
-                    .padding(50.0)
+                    .onChange(of: value) { newValue in
+                        sharedApiManager.searchCoffee(value: newValue) { result in
+                            switch result {
+                            case .success(let coffees):
+                                self.coffees = coffees.coffees ?? []
+                            case .failure(let error):
+                                print(error)
+                            }
+                            
+                        }
+                    }.onAppear(){
+                        sharedApiManager.searchCoffee(value: "") { result in
+                            switch result {
+                            case .success(let coffees):
+                                self.coffees = coffees.coffees ?? []
+                            case .failure(let error):
+                                print(error)
+                            }
+                        }
+                    }
                 
-                List(coffees, id: \.id){ index in
-                    CoffeeView(coffee: index)
+                List{
+                    ForEach(coffees, id: \.id){ index in
+                        CoffeeView(coffee: index)
+                            .listRowSeparator(.hidden)
+                        
+                    }
                 }
+                
+                .scrollContentBackground(.hidden)
                 
                 Spacer()
             }

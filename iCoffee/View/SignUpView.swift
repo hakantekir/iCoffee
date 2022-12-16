@@ -16,7 +16,6 @@ struct SignUpView: View {
     @State var phone: String = ""
     @State var showAlert = false
     @State var navigateMain = false
-    @State var user: User?
     @State var errorMessage = ""
     
     var signUpViewModel = SignUpViewModel()
@@ -75,8 +74,7 @@ struct SignUpView: View {
                     let newUser = User(username: username, password: password, userDetails: UserDetails(name: name, lastname: lastname, mail: mail, phone: phone))
                     signUpViewModel.signUp(user: newUser) { result in
                         switch result{
-                        case .success(let user):
-                            self.user=user
+                        case .success(_):
                             navigateMain=true
                         case .failure(let error):
                             switch error {
@@ -97,9 +95,7 @@ struct SignUpView: View {
                     .cornerRadius(10)
                     .foregroundColor(.white)
             }.navigationDestination(isPresented: $navigateMain, destination: {
-                if let user = self.user {
-                    MainView(user: user)
-                }
+                MainView()
             })
             .alert(isPresented: $showAlert) {
                 Alert(

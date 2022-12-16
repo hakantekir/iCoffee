@@ -13,7 +13,11 @@ struct iCoffeeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView(user: sampleUser)
+            if UserDefaults.standard.string(forKey: "id") != nil {
+                MainView()
+            } else {
+                SignInView()
+            }
         }
     }
 }

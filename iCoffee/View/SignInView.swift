@@ -54,8 +54,7 @@ struct SignInView: View {
                     Button {
                         signInViewModel.signIn(username: username, password: password) { result in
                             switch result{
-                            case .success(let user):
-                                self.user=user
+                            case .success(_):
                                 login.toggle()
                             case .failure(let error):
                                 switch error {
@@ -78,9 +77,7 @@ struct SignInView: View {
                             .foregroundColor(.white)
                     }
                     .navigationDestination(isPresented: $login, destination: {
-                        if let user = self.user {
-                            MainView(user: user)
-                        }
+                        MainView()
                     })
                     .alert(isPresented: $showAlert) {
                         Alert(

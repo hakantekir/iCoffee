@@ -10,7 +10,6 @@ import SwiftUI
 struct MainView: View {
     @State var selection = 1
     
-    var user: User
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
@@ -29,6 +28,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(user: sampleUser)
+        MainView()
     }
 }

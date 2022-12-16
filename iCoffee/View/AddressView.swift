@@ -20,6 +20,7 @@ struct AddressView: View {
     @StateObject private var manager = LocationManager()
     
     @Environment(\.dismiss) var dismiss: DismissAction
+    @Environment(\.colorScheme) var colorScheme
     
     let addressViewModel = AddressViewModel()
     
@@ -33,30 +34,30 @@ struct AddressView: View {
                     TextField("Country", text: $country)
                         .padding()
                         .frame(width: 150, height: 50)
-                        .background(Color.black.opacity(0.05))
+                        .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                         .cornerRadius(10)
                     TextField("City", text: $city)
                         .padding()
                         .frame(width: 150, height: 50)
-                        .background(Color.black.opacity(0.05))
+                        .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                         .cornerRadius(10)
                 }
                 HStack {
                     TextField("Zip", text: $zip)
                         .padding()
                         .frame(width: 150, height: 50)
-                        .background(Color.black.opacity(0.05))
+                        .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                         .cornerRadius(10)
                     TextField("Phone", text: $phone)
                         .padding()
                         .frame(width: 150, height: 50)
-                        .background(Color.black.opacity(0.05))
+                        .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                         .cornerRadius(10)
                 }
                 TextField("Address", text: $address)
                     .padding()
                     .frame(width: 310, height: 50)
-                    .background(Color.black.opacity(0.05))
+                    .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                     .cornerRadius(10)
                 Button {
                     

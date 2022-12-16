@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     @State var signOut = false
+    let myGreen = Color(red: 0, green: 100.0/255, blue: 60.0/255, opacity: 1.0)
     var body: some View {
         NavigationStack{
             VStack{
@@ -16,15 +17,25 @@ struct AccountView: View {
                     AddressesView()
                 } label: {
                     Text("My Addresses")
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(myGreen)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
                 }
                 
                 Button {
-                    UserDefaults.standard.removeObject(forKey: "id")
+                    UserDefaults.standard.removeObject(forKey: "id")//
                     signOut.toggle()
                 } label: {
                     Text("Sign out")
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(myGreen)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
                 }.navigationDestination(isPresented: $signOut, destination: {
-                    SignInView()
+                    SignInView()//
                 })
                 
             }

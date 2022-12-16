@@ -9,14 +9,14 @@ import Foundation
 
 struct SignInViewModel {
     
-    func signIn(username: String, password: String, completion: @escaping(Result<User, UserSignInErrors>) -> Void) {
+    func signIn(username: String, password: String, completion: @escaping(Result<Void, UserSignInErrors>) -> Void) {
         sharedApiManager.signIn(username: username, password: password) { result in
             switch result {
             case .success(let user):
                 switch user.status {
                 case .success:
                     UserDefaults.standard.set(user.user?.id, forKey: "id")
-                    completion(.success(user.user!))
+                    completion(.success)
                 case .wrongUsername:
                     completion(.failure(.wrongUsername))
                 case .wrongPassword:
@@ -42,4 +42,10 @@ enum UserSignInErrors: Error{
     case wrongUsername
     case wrongPassword
     case connectionError
+}
+
+private extension Result where Success == Void {
+    static var success: Result {
+        return .success(())
+    }
 }
