@@ -18,8 +18,6 @@ struct SignInView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var signInViewModel = SignInViewModel()
-            
-    let myGreen = Color(red: 0, green: 100.0/255, blue: 60.0/255, opacity: 1.0)
     
     var body: some View {
         NavigationStack {
@@ -50,7 +48,7 @@ struct SignInView: View {
                         .background(Color.black.opacity(0.05))
                         .cornerRadius(10)
                         .padding(.bottom)
-
+                    
                     Button {
                         signInViewModel.signIn(username: username, password: password) { result in
                             switch result{
@@ -98,12 +96,23 @@ struct SignInView: View {
                     }
                 }
             }
-        }.toolbar(.hidden, for: .tabBar, .navigationBar)
+        }
+        .toolbar(.hidden, for: .tabBar, .navigationBar)
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
 }
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }

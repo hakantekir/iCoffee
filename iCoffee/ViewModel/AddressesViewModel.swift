@@ -17,7 +17,7 @@ struct AddressesViewModel {
                 case .success:
                     if let addresses = addresses.addresses{
                         if addresses.isEmpty {
-                            completion(.failure(.emptyArray))
+                            completion(.failure(.valueNotFound))
                         } else {
                             completion(.success(addresses))
                         }
@@ -43,5 +43,5 @@ struct AddressesViewModel {
 enum AddressesError: Error {
     case sqlError
     case connectionError
-    case emptyArray
+    case valueNotFound
 }

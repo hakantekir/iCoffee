@@ -11,7 +11,7 @@ var sharedApiManager = APIManager()
 
 struct APIManager {
     
-    let baseUrl = "http://10.125.15.139:8081"
+    let baseUrl = "http://192.168.1.173:8081"
     
     func signIn(username: String, password: String, completion: @escaping(Result<UserWithSignInStatusCode, APIErrors>) -> Void) {
         let urlString = baseUrl + "/signin"
@@ -118,6 +118,28 @@ struct APIManager {
     
     func searchCoffee(value: String?, completion: @escaping(Result<CoffeesWithStatusCode, APIErrors>) -> Void) {
         let urlString = baseUrl + "/coffee/?search=" + value!
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.badUrl))
+            return
+        }
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            guard let responseJson = try? JSONDecoder().decode(CoffeesWithStatusCode.self, from: data) else {
+                completion(.failure(.dataParseError))
+                return
+            }
+            completion(.success(responseJson))
+        }.resume()
+    }
+    
+    func getCart(id: String?, completion: @escaping(Result<CoffeesWithStatusCode, APIErrors>) -> Void) {
+        let urlString = baseUrl + "/cart/?id=" + id!
         guard let url = URL(string: urlString) else {
             completion(.failure(.badUrl))
             return

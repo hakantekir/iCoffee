@@ -18,6 +18,8 @@ struct SignUpView: View {
     @State var navigateMain = false
     @State var errorMessage = ""
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var signUpViewModel = SignUpViewModel()
     
     let myGreen = Color(red: 0, green: 100.0/255, blue: 60.0/255, opacity: 1.0)
@@ -30,12 +32,12 @@ struct SignUpView: View {
                 TextField("Name", text: $name)
                     .padding()
                     .frame(width: 145, height: 50)
-                    .background(Color.black.opacity(0.05))
+                    .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                     .cornerRadius(10)
                 TextField("Last Name", text: $lastname)
                     .padding()
                     .frame(width: 145, height: 50)
-                    .background(Color.black.opacity(0.05))
+                    .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                     .cornerRadius(10)
             }
             
@@ -43,27 +45,27 @@ struct SignUpView: View {
                 .textInputAutocapitalization(.never)
                 .padding()
                 .frame(width: 300, height: 50)
-                .background(Color.black.opacity(0.05))
+                .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                 .cornerRadius(10)
             
             SecureField("Password", text: $password)
                 .padding()
                 .frame(width: 300, height: 50)
-                .background(Color.black.opacity(0.05))
+                .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                 .cornerRadius(10)
             
             TextField("E-Mail", text: $mail)
                 .keyboardType(.emailAddress)
                 .padding()
                 .frame(width: 300, height: 50)
-                .background(Color.black.opacity(0.05))
+                .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                 .cornerRadius(10)
             
             TextField("Phone Number", text: $phone)
                 .keyboardType(.numberPad)
                 .padding()
                 .frame(width: 300, height: 50)
-                .background(Color.black.opacity(0.05))
+                .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                 .cornerRadius(10)
                 
             Button {

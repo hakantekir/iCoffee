@@ -1,5 +1,5 @@
 //
-//  ItemView.swift
+//  CartItemView.swift
 //  iCoffee
 //
 //  Created by Hakan Tekir on 15.12.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemView: View {
+struct CartItemView: View {
     var coffee: Coffee
     var body: some View {
         HStack{
@@ -15,20 +15,21 @@ struct ItemView: View {
                 Text(coffee.name ?? "Coffee")
                     .font(.largeTitle)
                 HStack{
-                    Text(coffee.description ?? "Description")
+                    Text(String(coffee.quantity ?? 1))
                     Spacer()
-                    Text(coffee.price ?? "TL")
+                    Text("$\(coffee.price ?? 0, specifier: "%.2f")")
                 }
             }
         }
+        .padding()
         .frame(width: 350, height: 75)
         .background(Color.black.opacity(0.05))
         .cornerRadius(10)
     }
 }
 
-struct ItemView_Previews: PreviewProvider {
+struct CartItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView(coffee: sampleCoffee)
+        CartItemView(coffee: sampleCoffee)
     }
 }

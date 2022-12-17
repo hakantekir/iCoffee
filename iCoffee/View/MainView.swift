@@ -21,7 +21,7 @@ struct MainView: View {
                     .tabItem { Label("Cart", systemImage: "cart") }.tag(3)
                 AccountView()
                     .tabItem { Label("Account", systemImage: "person") }.tag(4)
-            }
+            }.tint(myGreen)
         }.navigationBarBackButtonHidden()
     }
 }

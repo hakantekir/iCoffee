@@ -9,6 +9,7 @@ import Foundation
 
 struct Address: Codable, Identifiable {
     var id: Int?
+    var title: String?
     var country: String?
     var city: String?
     var zip: String?

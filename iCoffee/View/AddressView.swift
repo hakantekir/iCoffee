@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct AddressView: View {
+    @State var title = ""
     @State var country = ""
     @State var city = ""
     @State var zip = ""
@@ -31,29 +32,34 @@ struct AddressView: View {
                     .frame(maxWidth: .infinity, maxHeight: 450)
                     .cornerRadius(25)
                 HStack {
-                    TextField("Country", text: $country)
+                    TextField("Title", text: $title)
                         .padding()
                         .frame(width: 150, height: 50)
                         .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                         .cornerRadius(10)
-                    TextField("City", text: $city)
+                    TextField("Country", text: $country)
                         .padding()
                         .frame(width: 150, height: 50)
                         .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                         .cornerRadius(10)
                 }
                 HStack {
+                    TextField("City", text: $city)
+                        .padding()
+                        .frame(width: 150, height: 50)
+                        .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
+                        .cornerRadius(10)
                     TextField("Zip", text: $zip)
                         .padding()
                         .frame(width: 150, height: 50)
                         .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                         .cornerRadius(10)
-                    TextField("Phone", text: $phone)
-                        .padding()
-                        .frame(width: 150, height: 50)
-                        .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
-                        .cornerRadius(10)
                 }
+                TextField("Phone", text: $phone)
+                    .padding()
+                    .frame(width: 310, height: 50)
+                    .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
+                    .cornerRadius(10)
                 TextField("Address", text: $address)
                     .padding()
                     .frame(width: 310, height: 50)
@@ -90,7 +96,7 @@ struct AddressView: View {
                     Text("Add")
                         .padding()
                         .frame(width: 300, height: 50)
-                        .background(Color(red: 0, green: 100.0/255, blue: 60.0/255, opacity: 1.0))
+                        .background(myGreen)
                         .cornerRadius(10)
                         .foregroundColor(.white)
                 }

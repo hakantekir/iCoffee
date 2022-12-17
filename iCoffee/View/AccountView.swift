@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     @State var signOut = false
-    let myGreen = Color(red: 0, green: 100.0/255, blue: 60.0/255, opacity: 1.0)
+
     var body: some View {
         NavigationStack{
             VStack{

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @State var selectedPage=0
-    let myGreen = Color(red: 0, green: 100.0/255, blue: 60.0/255, opacity: 1.0)
+    
     var body: some View {
         VStack{
             TabView(selection: $selectedPage) {

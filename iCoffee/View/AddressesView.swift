@@ -21,7 +21,7 @@ struct AddressesView: View {
                     Text("Add Address")
                 }
                 List(addresses, id: \.id){ index in
-                    Text(index.city ?? "")
+                    Text(index.title ?? "")
                 }.onAppear {
                     let id = UserDefaults.standard.string(forKey: "id")
                     addressesViewModel.getAddresses(id: id) { result in
@@ -33,7 +33,7 @@ struct AddressesView: View {
                             switch error {
                             case .sqlError, .connectionError:
                                 errorMessage = "Connection Error!"
-                            case .emptyArray:
+                            case .valueNotFound:
                                 isHidden=false
                             }
                         }

@@ -1,5 +1,5 @@
 //
-//  CoffeeView.swift
+//  SearchItemView.swift
 //  iCoffee
 //
 //  Created by Hakan Tekir on 14.12.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CoffeeView: View {
+struct SearchItemView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var coffee: Coffee
@@ -36,7 +36,7 @@ struct CoffeeView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    Text(coffee.price ?? "TL")
+                    Text("$\(coffee.price ?? 0, specifier: "%.2f")")
                         .font(.title)
                         .padding(25)
                 }
@@ -51,6 +51,6 @@ struct CoffeeView: View {
 
 struct CoffeeView_Previews: PreviewProvider {
     static var previews: some View {
-        CoffeeView(coffee: sampleCoffee)
+        SearchItemView(coffee: sampleCoffee)
     }
 }
