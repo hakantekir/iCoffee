@@ -16,7 +16,7 @@ struct CartView: View {
     var body: some View {
         VStack{
             List{
-                ForEach(cart, id: \.id) { index in
+                ForEach(cart, id: \.self) { index in
                     CartItemView(coffee: index)
                 }
             }
@@ -24,7 +24,7 @@ struct CartView: View {
                 cartViewModel.getCart() { result in
                     switch result {
                     case .success(let coffees):
-                        self.cart = coffees
+                        self.cart.append(contentsOf: coffees)
                     case .failure(let error):
                         switch error {
                         case .connectionError:
@@ -38,6 +38,10 @@ struct CartView: View {
                     }
                 }
             }
+            .onDisappear(){
+                self.cart.removeAll()
+            }
+            
             .scrollContentBackground(.hidden)
             .alert(isPresented: $showAlert) {
                 Alert(
@@ -62,6 +66,6 @@ struct CartView: View {
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView(cart: [sampleCoffee])
+        CartView()
     }
 }

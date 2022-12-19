@@ -15,6 +15,9 @@
 		A2643FF9294E023B00803EA5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2643FF8294E023B00803EA5 /* SearchViewModel.swift */; };
 		A26D5530294B7E1B00F5F2BE /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D552F294B7E1B00F5F2BE /* CartItemView.swift */; };
 		A279F108293F711000D79C9D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279F107293F711000D79C9D /* MainView.swift */; };
+		A27A8F40294F09B3005C3D89 /* CoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27A8F3F294F09B3005C3D89 /* CoffeeView.swift */; };
+		A27A8F4429509B6F005C3D89 /* CoffeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27A8F4329509B6F005C3D89 /* CoffeeViewModel.swift */; };
+		A27A8F462950A2F2005C3D89 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27A8F452950A2F2005C3D89 /* Cart.swift */; };
 		A27EAC4D29389DBF00340951 /* iCoffeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EAC4C29389DBF00340951 /* iCoffeeApp.swift */; };
 		A27EAC5129389DC000340951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27EAC5029389DC000340951 /* Assets.xcassets */; };
 		A27EAC5429389DC000340951 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27EAC5329389DC000340951 /* Preview Assets.xcassets */; };
@@ -69,6 +72,9 @@
 		A2643FF8294E023B00803EA5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A26D552F294B7E1B00F5F2BE /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
 		A279F107293F711000D79C9D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A27A8F3F294F09B3005C3D89 /* CoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeView.swift; sourceTree = "<group>"; };
+		A27A8F4329509B6F005C3D89 /* CoffeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeViewModel.swift; sourceTree = "<group>"; };
+		A27A8F452950A2F2005C3D89 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		A27EAC4929389DBF00340951 /* iCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27EAC4C29389DBF00340951 /* iCoffeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCoffeeApp.swift; sourceTree = "<group>"; };
 		A27EAC5029389DC000340951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 				A2C5449B293D201300E99062 /* User.swift */,
 				A2B2CED429437E4C0034FE05 /* Coffee.swift */,
 				A2F4E90429488C4A00E7C099 /* Address.swift */,
+				A27A8F452950A2F2005C3D89 /* Cart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,6 +218,7 @@
 				A2B2CED0294364110034FE05 /* CartView.swift */,
 				A217CBB1294A355F0051D0A9 /* SearchItemView.swift */,
 				A26D552F294B7E1B00F5F2BE /* CartItemView.swift */,
+				A27A8F3F294F09B3005C3D89 /* CoffeeView.swift */,
 				A2B2CECE2943605E0034FE05 /* AccountView.swift */,
 				A2B2CED62943839D0034FE05 /* AddressView.swift */,
 				A2B2CED8294384570034FE05 /* AddressesView.swift */,
@@ -227,6 +235,7 @@
 				A217CBAF2949FDE70051D0A9 /* AddressesViewModel.swift */,
 				A2643FF6294E021E00803EA5 /* CartViewModel.swift */,
 				A2643FF8294E023B00803EA5 /* SearchViewModel.swift */,
+				A27A8F4329509B6F005C3D89 /* CoffeeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -382,8 +391,11 @@
 				A26D5530294B7E1B00F5F2BE /* CartItemView.swift in Sources */,
 				A2B2CED72943839D0034FE05 /* AddressView.swift in Sources */,
 				A2C54499293CEC1800E99062 /* APIManager.swift in Sources */,
+				A27A8F4429509B6F005C3D89 /* CoffeeViewModel.swift in Sources */,
 				A21AFBE5293B7F4C001E52D6 /* WelcomeView.swift in Sources */,
 				A27EAC4D29389DBF00340951 /* iCoffeeApp.swift in Sources */,
+				A27A8F462950A2F2005C3D89 /* Cart.swift in Sources */,
+				A27A8F40294F09B3005C3D89 /* CoffeeView.swift in Sources */,
 				A217CBB02949FDE70051D0A9 /* AddressesViewModel.swift in Sources */,
 				A217CBB2294A355F0051D0A9 /* SearchItemView.swift in Sources */,
 				A2643FF7294E021E00803EA5 /* CartViewModel.swift in Sources */,
@@ -561,7 +573,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCoffee/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = address;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -591,7 +603,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iCoffee/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = address;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

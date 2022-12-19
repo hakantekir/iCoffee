@@ -31,6 +31,7 @@ struct AddressView: View {
                 Map(coordinateRegion: $manager.region, showsUserLocation: true)
                     .frame(maxWidth: .infinity, maxHeight: 450)
                     .cornerRadius(25)
+                    .padding(.horizontal, 5.0)
                 HStack {
                     TextField("Title", text: $title)
                         .padding()

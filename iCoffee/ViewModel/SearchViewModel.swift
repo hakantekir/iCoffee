@@ -10,7 +10,11 @@ import Foundation
 struct SearchViewModel {
     
     func searchCoffee(value: String, completion: @escaping(Result<[Coffee], SearchError>) -> Void) {
-        sharedApiManager.searchCoffee(value: value) { result in
+        guard let id = UserDefaults.standard.string(forKey: "id") else {
+            completion(.failure(.userNotFound))
+            return
+        }
+        sharedApiManager.searchCoffee(id: id, value: value) { result in
             switch result {
             case .success(let coffees):
                 if coffees.status == .success{
@@ -43,4 +47,5 @@ enum SearchError: Error {
     case connectionError
     case sqlError
     case valueNotFound
+    case userNotFound
 }

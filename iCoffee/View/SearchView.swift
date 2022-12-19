@@ -18,8 +18,8 @@ struct SearchView: View {
     var searchViewModel = SearchViewModel()
     var body: some View {
         NavigationStack {
-            VStack{
-                HStack{
+            VStack {
+                HStack {
                     Image(systemName: "magnifyingglass")
                         .padding()
                     TextField("Search", text: $value)
@@ -37,6 +37,9 @@ struct SearchView: View {
                                         self.errorMessage = "Database Error!"
                                         self.showAlert.toggle()
                                     case .valueNotFound: break
+                                    case .userNotFound:
+                                        self.errorMessage = "User error. Please re-sign in!"
+                                        self.showAlert.toggle()
                                     }
                                 }
                             }
@@ -45,7 +48,7 @@ struct SearchView: View {
                 .frame(width: 350, height: 50)
                 .background(colorScheme == .light ? Color.black.opacity(0.05) : Color.white.opacity(0.2))
                 .cornerRadius(10)
-                .padding()
+                .padding(15.0)
                 .alert(isPresented: $showAlert) {
                     Alert(
                         title: Text("Error"),
@@ -53,11 +56,17 @@ struct SearchView: View {
                     )
                 }
                 
-                List{
+                List {
                     ForEach(coffees, id: \.id){ index in
-                        SearchItemView(coffee: index)
-                            .listRowSeparator(.hidden)
-                        
+                        ZStack {
+                            SearchItemView(coffee: index)
+                            NavigationLink {
+                                CoffeeView(coffee: index)
+                            } label: {
+                                EmptyView()
+                            }.opacity(0)
+                        }
+                        .listRowSeparator(.hidden)
                     }
                 }
                 .scrollContentBackground(.hidden)
@@ -75,5 +84,8 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
+            .onAppear(){
+                UserDefaults.standard.set("2", forKey: "id")
+            }
     }
 }

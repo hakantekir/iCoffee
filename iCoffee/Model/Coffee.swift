@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Coffee: Codable, Identifiable{
+struct Coffee: Codable, Identifiable, Equatable, Hashable{
     var id: Int
     var name: String?
     var description: String?
@@ -27,4 +27,4 @@ enum StatusCode: Int, Decodable {
     case sqlError = 1
 }
 
-let sampleCoffee = Coffee(id: 1, name: "Name", description: "descp", price:10, image: "https://content.sbuxtr.com/images/9fcb82e2fcaa2175e749054a02870048.jpg", quantity: 2)
+let sampleCoffee = Coffee(id: 1, name: "Name", description: "Description", price:10, image: "https://content.sbuxtr.com/images/9fcb82e2fcaa2175e749054a02870048.jpg", quantity: 2)

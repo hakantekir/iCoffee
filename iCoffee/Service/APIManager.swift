@@ -11,7 +11,7 @@ var sharedApiManager = APIManager()
 
 struct APIManager {
     
-    let baseUrl = "http://192.168.1.173:8081"
+    //let baseUrl = "http://192.168.1.173:8081"
     
     func signIn(username: String, password: String, completion: @escaping(Result<UserWithSignInStatusCode, APIErrors>) -> Void) {
         let urlString = baseUrl + "/signin"
@@ -116,8 +116,8 @@ struct APIManager {
         }.resume()
     }
     
-    func searchCoffee(value: String?, completion: @escaping(Result<CoffeesWithStatusCode, APIErrors>) -> Void) {
-        let urlString = baseUrl + "/coffee/?search=" + value!
+    func searchCoffee(id: String, value: String, completion: @escaping(Result<CoffeesWithStatusCode, APIErrors>) -> Void) {
+        let urlString = baseUrl + "/coffee/?id=" + id + "&search=" + value
         guard let url = URL(string: urlString) else {
             completion(.failure(.badUrl))
             return
@@ -153,6 +153,87 @@ struct APIManager {
             }
             
             guard let responseJson = try? JSONDecoder().decode(CoffeesWithStatusCode.self, from: data) else {
+                completion(.failure(.dataParseError))
+                return
+            }
+            completion(.success(responseJson))
+        }.resume()
+    }
+    
+    func addCart(userId: String?, coffeeId: Int?, completion: @escaping(Result<CartResponse, APIErrors>) -> Void) {
+        let urlString = baseUrl + "/cart/?userId=" + userId!
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.badUrl))
+            return
+        }
+        let json = Coffee(id: coffeeId!, quantity: 1)
+        let jsonData = try? JSONEncoder().encode(json)
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            guard let responseJson = try? JSONDecoder().decode(CartResponse.self, from: data) else {
+                completion(.failure(.dataParseError))
+                return
+            }
+            completion(.success(responseJson))
+        }.resume()
+    }
+    
+    func updateCart(userId: String, coffeeId: Int, quantity: Int, completion: @escaping(Result<CartResponse, APIErrors>) -> Void) {
+        let urlString = baseUrl + "/cart/?userId=" + userId
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.badUrl))
+            return
+        }
+        let json = Coffee(id: coffeeId, quantity: quantity)
+        let jsonData = try? JSONEncoder().encode(json)
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "PATCH"
+        request.httpBody = jsonData
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            guard let responseJson = try? JSONDecoder().decode(CartResponse.self, from: data) else {
+                completion(.failure(.dataParseError))
+                return
+            }
+            completion(.success(responseJson))
+        }.resume()
+    }
+    
+    func deleteCart(userId: String, coffeeId: Int, completion: @escaping(Result<CartResponse, APIErrors>) -> Void) {
+        let urlString = baseUrl + "/cart/?userId=" + userId
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.badUrl))
+            return
+        }
+        let json = Coffee(id: coffeeId)
+        let jsonData = try? JSONEncoder().encode(json)
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "DELETE"
+        request.httpBody = jsonData
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            guard let responseJson = try? JSONDecoder().decode(CartResponse.self, from: data) else {
                 completion(.failure(.dataParseError))
                 return
             }
