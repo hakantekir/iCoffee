@@ -42,5 +42,4 @@ enum SignInStatusCode: Int, Decodable {
     case wrongPassword = 2
 }
 
-var sampleAddress = Address(country: "Country", city: "City", zip: "34", phone: "532", billingAddress: "billing", latitude: 30, longitude: 30)
 var sampleUser = User(id: 1, username: "user", password: "pass", userDetails: UserDetails(name: "name", lastname: "last", mail: "mail", phone: "532"))

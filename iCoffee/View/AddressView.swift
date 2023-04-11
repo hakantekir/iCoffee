@@ -73,7 +73,7 @@ struct AddressView: View {
                         showAlert=true
                     }
                     else {
-                        let address = Address(country: country, city: city, zip: zip, phone: phone, billingAddress: address, latitude: manager.region.center.latitude, longitude: manager.region.center.longitude)
+                        let address = Address(title: title, country: country, city: city, zip: zip, phone: phone, billingAddress: address, latitude: manager.region.center.latitude, longitude: manager.region.center.longitude)
                         addressViewModel.addAddress(address: address) { result in
                             switch result {
                             case .success(_):

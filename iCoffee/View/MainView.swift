@@ -13,8 +13,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
-                HomeView()
-                    .tabItem { Label("Home", systemImage: "house") }.tag(1)
+                HomeView().tabItem { Label("Home", systemImage: "house") }.tag(1)
                 SearchView()
                     .tabItem { Label("Search", systemImage: "magnifyingglass") }.tag(2)
                 CartView()

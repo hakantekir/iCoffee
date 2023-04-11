@@ -11,10 +11,11 @@ var sharedApiManager = APIManager()
 
 struct APIManager {
     
-    //let baseUrl = "http://192.168.1.173:8081"
+    let baseUrl = "http://192.168.1.173:8081"
+    //let baseUrl = "http://10.125.4.10:8081"
     
     func signIn(username: String, password: String, completion: @escaping(Result<UserWithSignInStatusCode, APIErrors>) -> Void) {
-        let urlString = baseUrl + "/signin"
+        let urlString = baseUrl + "/auth/signin"
         guard let url = URL(string: urlString) else {
             completion(.failure(.badUrl))
             return
@@ -44,7 +45,7 @@ struct APIManager {
     }
     
     func signUp(user: User, completion: @escaping(Result<UserWithSignUpStatusCode, APIErrors>) -> Void){
-        let urlString = baseUrl + "/signup"
+        let urlString = baseUrl + "/auth/signup"
         guard let url = URL(string: urlString) else {
             completion(.failure(.badUrl))
             return
@@ -233,6 +234,50 @@ struct APIManager {
                 return
             }
             
+            guard let responseJson = try? JSONDecoder().decode(CartResponse.self, from: data) else {
+                completion(.failure(.dataParseError))
+                return
+            }
+            completion(.success(responseJson))
+        }.resume()
+    }
+    
+    func getCartDetails(id: String?, completion: @escaping(Result<CartDetails, APIErrors>) -> Void){
+        let urlString = baseUrl + "/cart/details/?id=" + id!
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.badUrl))
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        URLSession.shared.dataTask(with: request) { data ,response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.noData))
+                return
+            }
+            guard let responseJson = try? JSONDecoder().decode(CartDetails.self, from: data) else {
+                completion(.failure(.dataParseError))
+                return
+            }
+            completion(.success(responseJson))
+        }.resume()
+    }
+    
+    func createOrder(userId: String, addressId: Int, completion: @escaping(Result<CartResponse, APIErrors>) -> Void) {
+        let urlString = baseUrl + "/order/?userId=" + userId + "&addressId" + String(addressId)
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.badUrl))
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "Post"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        URLSession.shared.dataTask(with: request) { data ,response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.noData))
+                return
+            }
             guard let responseJson = try? JSONDecoder().decode(CartResponse.self, from: data) else {
                 completion(.failure(.dataParseError))
                 return

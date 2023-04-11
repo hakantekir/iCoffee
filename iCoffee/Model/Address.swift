@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Address: Codable, Identifiable {
+struct Address: Codable, Identifiable, Hashable {
     var id: Int?
     var title: String?
     var country: String?
@@ -34,3 +34,4 @@ enum AddressStatusCode: Int, Decodable {
     case sqlError = 1
 }
 
+var sampleAddress = Address(title: "Title", country: "Country", city: "City", zip: "34", phone: "532", billingAddress: "billing", latitude: 30, longitude: 30)
